@@ -5,20 +5,39 @@ const rollLink = document.querySelector('.roll-link')
 const rollList = document.querySelector('.roll-list')
 const cleanButton = document.querySelector('#clean-list')
 const emptyText = document.querySelector('.empty-text')
+const creditsModal = document.querySelector('.credits-modal')
+const closeButton = document.querySelector('.close-icon')
+const creditsButton = document.querySelector('.credits')
 
-data.sort((a, b) => {
-    return b.total - a.total
+const axiosClient = axios.create({
+    baseURL: 'https://talespire-initiative.herokuapp.com'
 })
 
-function renderRollList () {
-    if(data.length > 0) {
+const getInitiativeRolls = async () => {
+    try {
+      const response = await axiosClient.get(`/initiative`);
+  
+      const rolls = response.data;
+  
+      console.log(`GET: Here's the list of todos`, rolls);
+  
+      return rolls;
+    } catch (errors) {
+      console.error(errors);
+    }
+};
+
+async function renderRollList () {
+    const rolledData = await getInitiativeRolls()
+    console.log(rolledData)
+    if(rolledData.length > 0) {
     rollList.innerHTML = ''
     rollList.classList.remove('empty')
 
-    data.forEach(element => {
+    rolledData.forEach(element => {
         rollList.insertAdjacentHTML('beforeend', `
             <li class="roll-card">
-                <h3 class="char-name">${element.player}</h3>
+                <h3 class="char-name">${element.mini}</h3>
                 <h3 class="roll-result">Rolled ${element.total}</h3>
             </li>
         `)
@@ -42,12 +61,21 @@ function rollDiceInGame () {
 
 rollButton.addEventListener('click', rollDiceInGame)
 
-function cleanList () {
+async function cleanList () {
     rollList.innerHTML = ''
     rollList.classList.add('empty')
     rollList.insertAdjacentHTML('beforeend', `
         <h2 class="empty-text">The queue is empty...</h2>
     `)
+    await axiosClient.delete('/initiative')
 }
 
 cleanButton.addEventListener('click', cleanList)
+
+closeButton.addEventListener('click', () => {
+    creditsModal.classList.remove('visible')
+})
+
+creditsButton.addEventListener('click', () => {
+    creditsModal.classList.add('visible')
+})

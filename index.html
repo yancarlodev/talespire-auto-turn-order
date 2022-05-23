@@ -10,12 +10,54 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./styles/reset.css">
         <link rel="stylesheet" href="./styles/style.css">
-        <script defer src="./script/database.js"></script>
-        <script defer src="./script/script.js"></script>
+        <link rel="icon" href="./img/dnd_logo.svg">
+        <script defer src="./src/script.js"></script>
         <title>Auto Turn Order</title>
     </head>
 
     <body>
+        <div class="credits-modal">
+            <div class="credits-card">
+                <img class="close-icon" src="./img/x-icon.svg" alt="close modal icon">
+                <div class="person-section">
+                    <h2 class="designation">UI Design</h2>
+                    <h3 class="autor-name">Carlos Henrique</h3>
+                    <ul class="link-list">
+                        <li><a class="external-link" target="_blank" href="https://carloshbrands.com.br/">Website</a></li>
+                        <li><a class="external-link" target="_blank" href="https://www.linkedin.com/in/carloshbrands?originalSubdomain=br">LinkedIn</a></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="person-section">
+                    <h2 class="designation">Front-end</h2>
+                    <h3 class="autor-name">Yan Carlo</h3>
+                    <ul class="link-list">
+                        <li><a class="external-link" target="_blank" href="https://github.com/yancarlodev">Github</a></li>
+                        <li><a class="external-link" target="_blank" href="https://www.linkedin.com/in/yancarlodev/">LinkedIn</a></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="person-section">
+                    <h2 class="designation">Back-end</h2>
+                    <h3 class="autor-name">Gabriel Araújo</h3>
+                    <ul class="link-list">
+                        <li><a class="external-link" target="_blank" href="https://github.com/araujooj">Github</a></li>
+                        <li><a class="external-link" target="_blank" href="https://www.linkedin.com/in/araujooj/">LinkedIn</a></li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="person-section">
+                    <h2 class="designation">RollPostPlugin Author</h2>
+                    <h3 class="autor-name">LordOfAshes</h3>
+                    <ul class="link-list">
+                        <li><a class="external-link" target="_blank" href="">Github</a></li>
+                        <li><a class="external-link" target="_blank" href="">LinkedIn</a></li>
+                        <li><a class="external-link" target="_blank" href="https://talespire.thunderstore.io/package/LordAshes/RollPostPlugin/">Plugin Page</a></li>
+                    </ul>
+                </div>
+            </div>    
+        </div>
+
         <main class="main-container">
             <section class="roll-tracker-container">
                 <ul class="roll-list empty">
@@ -36,6 +78,10 @@
                     </div>
                     <button class="roll-button"><a class="roll-link">Roll</a></button>
             </section>
+
+            <h3 class="credits">Credits</h3>
         </main>
+
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     </body>
 </html>
