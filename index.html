@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./styles/reset.css">
+        <link rel="stylesheet" href="./styles/style.css">
+        <script defer src="./script/database.js"></script>
+        <script defer src="./script/script.js"></script>
+        <title>Auto Turn Order</title>
+    </head>
+
+    <body>
+        <main class="main-container">
+            <section class="roll-tracker-container">
+                <ul class="roll-list empty">
+                    <h2 class="empty-text">The queue is empty...</h2>
+                </ul>
+
+                <div class="button-container">
+                    <button class="list-button" id="open-queue">Open queue</button>
+                    <img class="dnd-logo" src="./img/dnd_logo.svg" alt="DnD logo">
+                    <button class="list-button" id="clean-list">Clean list</button>
+                </div>
+            </section>
+
+            <section class="dice-roller">
+                    <div class="input-container">
+                        <input class="dice-input" type="text" placeholder="1d20">
+                        <input class="mod-input" type="text" placeholder="+5">
+                    </div>
+                    <button class="roll-button"><a class="roll-link">Roll</a></button>
+            </section>
+        </main>
+    </body>
+</html>
